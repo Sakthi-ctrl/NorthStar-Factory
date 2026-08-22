@@ -14,6 +14,7 @@ export interface ProjectTile {
   imageSrc: string;
   imageSrcset?: string;
   videoSrc?: string;
+  websiteUrl?: string;
   desc: string;
   smDesc: string;
   category?: string;
@@ -33,6 +34,7 @@ export const PROJECT_TILES: ProjectTile[] = [
     delRandom: "664ms",
     dark: true,
     href: "/projects/waymo",
+    websiteUrl: "https://autonomy-trust-labs.vercel.app/",
     ariaLabel: "Go to AutonomyTrustLabs project",
     imageSrc: "https://lh3.googleusercontent.com/faxtCqVNVWA6-xfiXvLk0GUfARiPMivH_EqSBRddPjHCJThVPEGpOouf5fRXx8nU6prVhVz1UJ2SyoKxSCmfBs9HB1sHrC_IM_98=e365-pa-nu-s0",
     imageSrcset: "https://lh3.googleusercontent.com/faxtCqVNVWA6-xfiXvLk0GUfARiPMivH_EqSBRddPjHCJThVPEGpOouf5fRXx8nU6prVhVz1UJ2SyoKxSCmfBs9HB1sHrC_IM_98=e365-pa-nu-w600-rw 2x, https://lh3.googleusercontent.com/faxtCqVNVWA6-xfiXvLk0GUfARiPMivH_EqSBRddPjHCJThVPEGpOouf5fRXx8nU6prVhVz1UJ2SyoKxSCmfBs9HB1sHrC_IM_98=e365-pa-nu-w300-rw",
@@ -75,6 +77,7 @@ export const PROJECT_TILES: ProjectTile[] = [
     delRandom: "311ms",
     dark: false,
     href: "/projects/malta",
+    websiteUrl: "https://ventergy-group.vercel.app/",
     ariaLabel: "Go to Ventergy project",
     imageSrc: "https://lh3.googleusercontent.com/S1RjmAu76veZc648NrTaoFY9H5h6pG7wjnfDSEoiymoF5PBdIwbn8Jioh9DJBAPKNLkpr6Sx4UCLL1umkjT4-KBS354GU8eA-HOXpw=e365-pa-nu-s0",
     imageSrcset: "https://lh3.googleusercontent.com/S1RjmAu76veZc648NrTaoFY9H5h6pG7wjnfDSEoiymoF5PBdIwbn8Jioh9DJBAPKNLkpr6Sx4UCLL1umkjT4-KBS354GU8eA-HOXpw=e365-pa-nu-w600-rw 2x, https://lh3.googleusercontent.com/S1RjmAu76veZc648NrTaoFY9H5h6pG7wjnfDSEoiymoF5PBdIwbn8Jioh9DJBAPKNLkpr6Sx4UCLL1umkjT4-KBS354GU8eA-HOXpw=e365-pa-nu-w300-rw",
@@ -96,6 +99,7 @@ export const PROJECT_TILES: ProjectTile[] = [
     delRandom: "174ms",
     dark: false,
     href: "/projects/foghorn",
+    websiteUrl: "https://align-x-olive.vercel.app/",
     ariaLabel: "Go to AlignX project",
     imageSrc: "https://lh3.googleusercontent.com/0mO_ye6zYJVy1EGqUfJlxeuSC97276M-yEWYKkP8oaC9ArFJ7CGnYFCQbehSB7U9OZu7iMujNk_qCZr5XyNi91gWWMGqAMH3Rg1j=e365-pa-nu-s0",
     imageSrcset: "https://lh3.googleusercontent.com/0mO_ye6zYJVy1EGqUfJlxeuSC97276M-yEWYKkP8oaC9ArFJ7CGnYFCQbehSB7U9OZu7iMujNk_qCZr5XyNi91gWWMGqAMH3Rg1j=e365-pa-nu-w600-rw 2x, https://lh3.googleusercontent.com/0mO_ye6zYJVy1EGqUfJlxeuSC97276M-yEWYKkP8oaC9ArFJ7CGnYFCQbehSB7U9OZu7iMujNk_qCZr5XyNi91gWWMGqAMH3Rg1j=e365-pa-nu-w300-rw",
@@ -117,6 +121,7 @@ export const PROJECT_TILES: ProjectTile[] = [
     delRandom: "505ms",
     dark: false,
     href: "/projects/tapestry",
+    websiteUrl: "https://servira-ai.vercel.app/",
     ariaLabel: "Go to Servira project",
     imageSrc: "https://lh3.googleusercontent.com/2QAbtZgsrtnxB8fig8VbOVNN7MElFbvhfPOx3-WxA_AKMaMrS0hG_Stk_VNZezcM6umSG538_n0k0U9NzlBsBtcxqquus0h74fIA=e365-pa-nu-s0",
     imageSrcset: "https://lh3.googleusercontent.com/2QAbtZgsrtnxB8fig8VbOVNN7MElFbvhfPOx3-WxA_AKMaMrS0hG_Stk_VNZezcM6umSG538_n0k0U9NzlBsBtcxqquus0h74fIA=e365-pa-nu-w600-rw 2x, https://lh3.googleusercontent.com/2QAbtZgsrtnxB8fig8VbOVNN7MElFbvhfPOx3-WxA_AKMaMrS0hG_Stk_VNZezcM6umSG538_n0k0U9NzlBsBtcxqquus0h74fIA=e365-pa-nu-w300-rw",
@@ -138,6 +143,7 @@ export const PROJECT_TILES: ProjectTile[] = [
     delRandom: "510ms",
     dark: false,
     href: "/projects/iyo",
+    websiteUrl: "https://badmintonos.com",
     ariaLabel: "Go to BadmintonOS project",
     imageSrc: "https://lh3.googleusercontent.com/b2TE1GoQZ2IyYVODLxhKV9wlQ3rkIctu-CZoM4izPb0JxH50Z2wHQD4Pb2IyiSdCPL20bcw42cbZwTDybhyJzUDP1L0ozzaEY27ejw=e365-pa-nu-s0",
     imageSrcset: "https://lh3.googleusercontent.com/b2TE1GoQZ2IyYVODLxhKV9wlQ3rkIctu-CZoM4izPb0JxH50Z2wHQD4Pb2IyiSdCPL20bcw42cbZwTDybhyJzUDP1L0ozzaEY27ejw=e365-pa-nu-w600-rw 2x, https://lh3.googleusercontent.com/b2TE1GoQZ2IyYVODLxhKV9wlQ3rkIctu-CZoM4izPb0JxH50Z2wHQD4Pb2IyiSdCPL20bcw42cbZwTDybhyJzUDP1L0ozzaEY27ejw=e365-pa-nu-w300-rw",

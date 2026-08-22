@@ -220,9 +220,10 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
   const displayName = tile.name || tile.id.replace(/-/g, " ");
 
   return (
-    <Link
+    <div
       className="project-grid-card"
-      href={tile.href}
+      role="button"
+      tabIndex={0}
       aria-label={tile.ariaLabel}
       style={{
         display: "block",
@@ -236,6 +237,12 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
         transition: "transform 0.35s ease, box-shadow 0.35s ease",
         transform: isHovered ? "scale(1.025)" : "scale(1)",
         boxShadow: isHovered ? "0 16px 36px rgba(0,0,0,0.18)" : "0 4px 12px rgba(0,0,0,0.04)",
+        cursor: tile.websiteUrl ? "pointer" : "default",
+      }}
+      onClick={() => {
+        if (tile.websiteUrl) {
+          window.open(tile.websiteUrl, "_blank", "noopener,noreferrer");
+        }
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -272,7 +279,7 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.5) 100%)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.6) 100%)",
           pointerEvents: "none",
           transition: "opacity 0.3s ease",
           opacity: 0.9,
@@ -321,25 +328,27 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
         </p>
       </div>
 
-      {/* Bottom Category Badge */}
-      {tile.category && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: "20px",
-            left: "24px",
-            zIndex: 2,
-            opacity: isHovered ? 1 : 0.7,
-            transition: "opacity 0.25s ease",
-          }}
-        >
+      {/* Bottom Row: Category Badge & Visit Website Button */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20px",
+          left: "24px",
+          right: "24px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          zIndex: 5,
+        }}
+      >
+        {tile.category ? (
           <span
             style={{
               fontSize: "12px",
               fontWeight: 500,
               letterSpacing: "0.02em",
               color: "rgba(255, 255, 255, 0.9)",
-              backgroundColor: "rgba(0, 0, 0, 0.4)",
+              backgroundColor: "rgba(0, 0, 0, 0.45)",
               padding: "4px 12px",
               borderRadius: "100px",
               backdropFilter: "blur(4px)",
@@ -347,8 +356,39 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
           >
             {tile.category}
           </span>
-        </div>
-      )}
-    </Link>
+        ) : (
+          <div />
+        )}
+
+        {/* Visit Website Button */}
+        {tile.websiteUrl && (
+          <a
+            href={tile.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="visit-website-btn"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "12px",
+              fontWeight: 600,
+              padding: "6px 14px",
+              borderRadius: "100px",
+              textDecoration: "none",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.25)",
+              transition: "all 0.2s ease",
+              cursor: "pointer",
+            }}
+          >
+            <span>Visit website</span>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
   );
 }

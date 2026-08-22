@@ -110,3 +110,18 @@ button[style*="background-color:#000000"] span {
   color: #ffffff !important;
 }
 
+/* Visit Website Button on Project Cards */
+.project-grid-card .visit-website-btn,
+.project-grid-card .visit-website-btn span,
+.project-grid-card .visit-website-btn svg {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+.project-grid-card .visit-website-btn:hover,
+.project-grid-card .visit-website-btn:hover span,
+.project-grid-card .visit-website-btn:hover svg {
+  color: #000000 !important;
+  background-color: #ffb300 !important;
+}
+
