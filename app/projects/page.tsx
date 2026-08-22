@@ -299,7 +299,7 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
             margin: 0,
             textShadow: "0 1px 4px rgba(0,0,0,0.4)",
             fontFamily: "var(--font-family-display), 'Google Sans', sans-serif",
-            textTransform: "capitalize",
+            textTransform: "none",
           }}
         >
           {displayName}
