@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051c38"/>
+      <stop offset="100%" stop-color="#020d1c"/>
+    </linearGradient>
+    <linearGradient id="starLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="starDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#034b75"/>
+    </linearGradient>
+    <linearGradient id="diagLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="diagDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Navy Circular Ring -->
+  <circle cx="32" cy="32" r="23" fill="none" stroke="url(#ringGrad)" stroke-width="8"/>
+
+  <!-- 4 Diagonal Inner Rays -->
+  <polygon points="32,32 44,20 32,27" fill="url(#diagLight)"/>
+  <polygon points="32,32 44,20 37,32" fill="url(#diagDark)"/>
+  <polygon points="32,32 44,44 37,32" fill="url(#diagLight)"/>
+  <polygon points="32,32 44,44 32,37" fill="url(#diagDark)"/>
+  <polygon points="32,32 20,44 32,37" fill="url(#diagLight)"/>
+  <polygon points="32,32 20,44 27,32" fill="url(#diagDark)"/>
+  <polygon points="32,32 20,20 27,32" fill="url(#diagLight)"/>
+  <polygon points="32,32 20,20 32,27" fill="url(#diagDark)"/>
+
+  <!-- 4 Primary Compass Points -->
+  <polygon points="32,32 32,2 26,32" fill="url(#starLight)"/>
+  <polygon points="32,32 32,2 38,32" fill="url(#starDark)"/>
+  <polygon points="32,32 32,62 38,32" fill="url(#starLight)"/>
+  <polygon points="32,32 32,62 26,32" fill="url(#starDark)"/>
+  <polygon points="32,32 62,32 32,26" fill="url(#starLight)"/>
+  <polygon points="32,32 62,32 32,38" fill="url(#starDark)"/>
+  <polygon points="32,32 2,32 32,38" fill="url(#starLight)"/>
+  <polygon points="32,32 2,32 32,26" fill="url(#starDark)"/>
+
+  <!-- Star Center Highlight Gem -->
+  <circle cx="32" cy="32" r="2.5" fill="#e0f2fe"/>
+</svg>

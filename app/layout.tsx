@@ -5,33 +5,41 @@ import { Footer } from "@/components/Footer";
 import { SvgSprites } from "@/components/SvgIcons";
 
 export const metadata: Metadata = {
-  title: "Home - Google X",
+  title: "The Northstar Factory",
   description:
-    "Welcome to X, Alphabet's Moonshot Factory. We create radical technologies to help solve some of the world’s hardest problems.",
+    "We are solving some of the world’s hardest problems by turning sci-fi possibilities into reality.",
   openGraph: {
-    title: "Home - Google X",
+    title: "The Northstar Factory",
     description:
-      "Welcome to X, Alphabet's Moonshot Factory. We create radical technologies to help solve some of the world’s hardest problems.",
-    url: "https://x.company",
-    siteName: "X",
+      "We are solving some of the world’s hardest problems by turning sci-fi possibilities into reality.",
+    url: "https://northstar-factory.com",
+    siteName: "The Northstar Factory",
     images: [
       {
         url: "https://lh3.googleusercontent.com/elgwplemqaNzHq3oYX9DtNE3qJ3PbTwoOWrOGhIhqu91aboT-yFfg_VpRV-TZZoYpJVHN1hWl4zPSB1MQtJLB2AyAtQJGR-8cw1W=e365-pa-nu-w1200",
         width: 1200,
         height: 630,
-        alt: "Google X - The Moonshot Factory",
+        alt: "The Northstar Factory",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Home - Google X",
+    title: "The Northstar Factory",
     description:
-      "Welcome to X, Alphabet's Moonshot Factory. We create radical technologies to help solve some of the world’s hardest problems.",
+      "We are solving some of the world’s hardest problems by turning sci-fi possibilities into reality.",
     images: [
       "https://lh3.googleusercontent.com/elgwplemqaNzHq3oYX9DtNE3qJ3PbTwoOWrOGhIhqu91aboT-yFfg_VpRV-TZZoYpJVHN1hWl4zPSB1MQtJLB2AyAtQJGR-8cw1W=e365-pa-nu-w1200",
     ],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
 };
 
@@ -43,6 +51,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://storage.googleapis.com" crossOrigin="anonymous" />
