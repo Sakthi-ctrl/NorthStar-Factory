@@ -43,9 +43,17 @@ export function SvgSprites() {
   );
 }
 
-export function Icon({ id, className }: { id: string; className?: string }) {
+export function Icon({
+  id,
+  className,
+  style,
+}: {
+  id: string;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
   return (
-    <svg className={className}>
+    <svg className={className} style={style}>
       <use href={`#${id}`} xlinkHref={`#${id}`} />
     </svg>
   );
