@@ -176,7 +176,7 @@ export function Footer() {
             fontFamily: "var(--font-family-text), 'Google Sans', sans-serif",
           }}
         >
-          © Northstar-Factory. All rights reserved.
+          © Northstar Factory. All rights reserved.
         </div>
       </div>
 
