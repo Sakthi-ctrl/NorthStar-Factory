@@ -218,6 +218,7 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
   };
 
   const displayName = tile.name || tile.id.replace(/-/g, " ");
+  const statusLabel = tile.status ? (tile.status === "Graduated" ? "GRADUATED" : "CURRENT PROJECT") : (tile.category || "PROJECT").toUpperCase();
 
   return (
     <div
@@ -229,14 +230,14 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
         display: "block",
         position: "relative",
         aspectRatio: "3 / 4",
-        borderRadius: "18px",
+        borderRadius: "12px",
         overflow: "hidden",
-        backgroundColor: tile.color || "#1b1d23",
+        backgroundColor: "#000000",
         textDecoration: "none",
         color: "#ffffff",
         transition: "transform 0.35s ease, box-shadow 0.35s ease",
-        transform: isHovered ? "scale(1.025)" : "scale(1)",
-        boxShadow: isHovered ? "0 16px 36px rgba(0,0,0,0.18)" : "0 4px 12px rgba(0,0,0,0.04)",
+        transform: isHovered ? "translateY(-4px)" : "translateY(0)",
+        boxShadow: isHovered ? "0 20px 40px rgba(0,0,0,0.25)" : "0 4px 14px rgba(0,0,0,0.06)",
         cursor: tile.websiteUrl ? "pointer" : "default",
       }}
       onClick={() => {
@@ -247,7 +248,7 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Video Background Thumbnail */}
+      {/* 1. Base Video Media (Default View) */}
       {tile.videoSrc ? (
         <video
           ref={videoRef}
@@ -264,130 +265,162 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            transition: "transform 0.5s ease",
-            transform: isHovered ? "scale(1.06)" : "scale(1)",
+            transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+            transform: isHovered ? "scale(1.05)" : "scale(1)",
           }}
         >
           <source src={tile.videoSrc} type="video/mp4" />
         </video>
       ) : (
-        <div style={{ width: "100%", height: "100%", backgroundColor: tile.color || "#1b1d23" }} />
+        <div style={{ width: "100%", height: "100%", backgroundColor: tile.color || "#111111" }} />
       )}
 
-      {/* Top Gradient Overlay for Text Contrast */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.6) 100%)",
-          pointerEvents: "none",
-          transition: "opacity 0.3s ease",
-          opacity: 0.9,
-        }}
-      />
-
-      {/* Project Title & Subtitle Overlay (Top-Left Aligned) */}
+      {/* Subtle Default Top Vignette for Title Readability */}
       <div
         style={{
           position: "absolute",
           top: 0,
           left: 0,
           right: 0,
-          padding: "24px 24px",
+          height: "40%",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%)",
+          pointerEvents: "none",
+          opacity: isHovered ? 0 : 1,
+          transition: "opacity 0.3s ease",
+        }}
+      />
+
+      {/* 2. Default Title (Shown over video when not hovered) */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          padding: "32px 30px",
           zIndex: 2,
+          opacity: isHovered ? 0 : 1,
+          transition: "opacity 0.3s ease",
+          pointerEvents: "none",
         }}
       >
         <h3
           style={{
-            fontSize: "clamp(20px, 1.8vw, 24px)",
-            fontWeight: 500,
-            lineHeight: 1.25,
+            fontSize: "clamp(22px, 2vw, 26px)",
+            fontWeight: 400,
+            lineHeight: 1.2,
             color: "#ffffff",
             margin: 0,
-            textShadow: "0 1px 4px rgba(0,0,0,0.4)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.6)",
             fontFamily: "var(--font-family-display), 'Google Sans', sans-serif",
-            textTransform: "none",
+            letterSpacing: "-0.01em",
           }}
         >
           {displayName}
         </h3>
-
-        <p
-          style={{
-            fontSize: "14px",
-            lineHeight: 1.4,
-            color: "rgba(255, 255, 255, 0.88)",
-            marginTop: "6px",
-            marginBottom: 0,
-            textShadow: "0 1px 3px rgba(0,0,0,0.4)",
-            opacity: isHovered ? 1 : 0.85,
-            transition: "opacity 0.25s ease",
-          }}
-        >
-          {tile.desc}
-        </p>
       </div>
 
-      {/* Bottom Row: Category Badge & Visit Website Button */}
+      {/* 3. Exact Google X Full-Black Hover Card Overlay */}
       <div
         style={{
           position: "absolute",
-          bottom: "20px",
-          left: "24px",
-          right: "24px",
+          inset: 0,
+          backgroundColor: "#000000",
+          opacity: isHovered ? 1 : 0,
+          transition: "opacity 0.35s ease-out",
+          padding: "36px 30px",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "space-between",
-          alignItems: "center",
-          zIndex: 5,
+          zIndex: 10,
+          boxSizing: "border-box",
         }}
       >
-        {tile.category ? (
+        {/* Hover Content Top: Title & Detailed Description */}
+        <div>
+          <h3
+            style={{
+              fontSize: "clamp(22px, 2vw, 26px)",
+              fontWeight: 400,
+              lineHeight: 1.2,
+              color: "#ffffff",
+              margin: 0,
+              fontFamily: "var(--font-family-display), 'Google Sans', sans-serif",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {displayName}
+          </h3>
+
+          <p
+            style={{
+              fontSize: "16px",
+              lineHeight: 1.45,
+              color: "rgba(255, 255, 255, 0.9)",
+              marginTop: "24px",
+              marginBottom: 0,
+              fontFamily: "var(--font-family-text), 'Google Sans', sans-serif",
+              fontWeight: 400,
+            }}
+          >
+            {tile.desc}
+          </p>
+        </div>
+
+        {/* Hover Content Bottom: Status Label (Left) & Visit Website Button / Arrow (Right) */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
           <span
             style={{
-              fontSize: "12px",
-              fontWeight: 500,
-              letterSpacing: "0.02em",
-              color: "rgba(255, 255, 255, 0.9)",
-              backgroundColor: "rgba(0, 0, 0, 0.45)",
-              padding: "4px 12px",
-              borderRadius: "100px",
-              backdropFilter: "blur(4px)",
-            }}
-          >
-            {tile.category}
-          </span>
-        ) : (
-          <div />
-        )}
-
-        {/* Visit Website Button */}
-        {tile.websiteUrl && (
-          <a
-            href={tile.websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="visit-website-btn"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              fontSize: "12px",
+              fontSize: "13px",
               fontWeight: 600,
-              padding: "6px 14px",
-              borderRadius: "100px",
-              textDecoration: "none",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.25)",
-              transition: "all 0.2s ease",
-              cursor: "pointer",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "#ffffff",
+              fontFamily: "var(--font-family-text), 'Google Sans', sans-serif",
             }}
           >
-            <span>Visit website</span>
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            {statusLabel}
+          </span>
+
+          {tile.websiteUrl ? (
+            <a
+              href={tile.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="visit-website-btn"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                fontSize: "12px",
+                fontWeight: 600,
+                padding: "6px 14px",
+                borderRadius: "100px",
+                textDecoration: "none",
+                boxShadow: "0 2px 10px rgba(0,0,0,0.35)",
+                transition: "all 0.2s ease",
+                cursor: "pointer",
+              }}
+            >
+              <span>Visit website</span>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ color: "#ffffff" }}>
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
