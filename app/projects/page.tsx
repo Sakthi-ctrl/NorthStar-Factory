@@ -240,30 +240,15 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background Image */}
-      <picture style={{ width: "100%", height: "100%", display: "block" }}>
-        {tile.imageSrcset && <source srcSet={tile.imageSrcset} />}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={tile.imageSrc}
-          alt={displayName}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            transition: "transform 0.5s ease",
-            transform: isHovered ? "scale(1.06)" : "scale(1)",
-          }}
-        />
-      </picture>
-
-      {/* Optional Hover Video Preview */}
-      {tile.videoSrc && (
+      {/* Video Background Thumbnail */}
+      {tile.videoSrc ? (
         <video
           ref={videoRef}
+          autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           disablePictureInPicture
           disableRemotePlayback
           style={{
@@ -272,12 +257,14 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            opacity: isHovered ? 1 : 0,
-            transition: "opacity 0.35s ease",
+            transition: "transform 0.5s ease",
+            transform: isHovered ? "scale(1.06)" : "scale(1)",
           }}
         >
           <source src={tile.videoSrc} type="video/mp4" />
         </video>
+      ) : (
+        <div style={{ width: "100%", height: "100%", backgroundColor: tile.color || "#1b1d23" }} />
       )}
 
       {/* Top Gradient Overlay for Text Contrast */}
