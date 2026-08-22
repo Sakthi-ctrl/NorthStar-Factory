@@ -39,7 +39,7 @@ export function HeroSection() {
   return (
     <section className="_section_1lrgo_67" style={{ backgroundColor: "#ffffff", color: "#000000" }}>
       <div className="_container_1qcb5_110">
-        <div className="_heroContent_1lrgo_103">
+        <div className="_heroContent_1lrgo_103" style={{ maxWidth: "980px" }}>
           {/* Hero Logo Video */}
           <video
             disablePictureInPicture
@@ -61,9 +61,9 @@ export function HeroSection() {
             className="_headline_1lrgo_88 _size:headline-1-smaller_13jtc_160"
             style={{
               whiteSpace: "nowrap",
-              fontSize: "clamp(20px, 3.2vw, 36px)",
+              fontSize: "clamp(24px, 3.5vw, 42px)",
               lineHeight: "1.2",
-              marginBottom: "36px",
+              marginBottom: "32px",
               color: "#000000",
             }}
           >
@@ -73,36 +73,33 @@ export function HeroSection() {
           {/* Subtitle */}
           <p
             className="_headlineSubtitle_1lrgo_92 _size:subtitle_13jtc_331"
-            style={{ marginTop: "24px", color: "#000000" }}
+            style={{
+              marginTop: "20px",
+              color: "#000000",
+              maxWidth: "980px",
+              lineHeight: "1.6",
+            }}
           >
-            <span>
+            <span style={{ marginBottom: "12px" }}>
               {renderAnimatedText(
-                "Born at Google, we got our start creating the",
+                "Born at Reinx Ventures, we build the companies that build the future.",
                 1050,
                 5,
                 400
               )}
-            </span>{" "}
-            <span>
+            </span>
+            <span style={{ marginBottom: "12px" }}>
               {renderAnimatedText(
-                "self-driving car. Since then, we’ve continued to",
+                "AutonomyTrustLabs. Ventergy. SignalOS. AlignX. Servira. BadmintonOS.",
                 1235,
                 5,
                 400
               )}
-            </span>{" "}
+            </span>
             <span>
               {renderAnimatedText(
-                "bring sci-fi ideas into reality to help solve some",
+                "Different industries, one instinct: turn ambitious ideas into products people actually rely on.",
                 1445,
-                5,
-                400
-              )}
-            </span>{" "}
-            <span>
-              {renderAnimatedText(
-                "of the world’s hardest problems.",
-                1655,
                 5,
                 400
               )}
