@@ -18,7 +18,6 @@ export interface ProjectTile {
   desc: string;
   smDesc: string;
   category?: string;
-  status?: string;
 }
 
 export const PROJECT_TILES: ProjectTile[] = [
@@ -40,7 +39,6 @@ export const PROJECT_TILES: ProjectTile[] = [
     desc: "Building the trust and assurance infrastructure for autonomous and Physical AI systems.",
     smDesc: "Building the trust and assurance infrastructure for autonomous and Physical AI systems.",
     category: "Autonomous Vehicles",
-    status: "Graduated",
   },
   {
     id: "ventergy",
@@ -59,7 +57,6 @@ export const PROJECT_TILES: ProjectTile[] = [
     desc: "A venture studio for intelligent energy and sustainability systems.",
     smDesc: "A venture studio for intelligent energy and sustainability systems.",
     category: "Clean Energy",
-    status: "Current",
   },
   {
     id: "servira",
@@ -79,7 +76,6 @@ export const PROJECT_TILES: ProjectTile[] = [
     desc: "AI-powered service operations platform for home, facility, and infrastructure services.",
     smDesc: "AI-powered service operations platform for home, facility, and infrastructure services.",
     category: "Energy Grid",
-    status: "Graduated",
   },
   {
     id: "alignx",
@@ -98,7 +94,6 @@ export const PROJECT_TILES: ProjectTile[] = [
     desc: "AI-powered Business OS transforming how companies plan, operate, grow and scale.",
     smDesc: "AI-powered Business OS transforming how companies plan, operate, grow and scale.",
     category: "Clean Tech",
-    status: "Current",
   },
   {
     id: "badmintonos",
@@ -117,7 +112,6 @@ export const PROJECT_TILES: ProjectTile[] = [
     desc: "The digital and AI operating system for the global badminton ecosystem.",
     smDesc: "The digital and AI operating system for the global badminton ecosystem.",
     category: "Wearable Audio",
-    status: "Current",
   },
   {
     id: "signalos",
@@ -132,10 +126,9 @@ export const PROJECT_TILES: ProjectTile[] = [
     dark: true,
     href: "/projects/taara",
     ariaLabel: "Go to SignalOS project",
-    imageSrc: "/images/Innovation.png",
+    imageSrc: "/images/SignalOS.png",
     desc: "Turning ideas into validated outcomes through execution and evidence.",
     smDesc: "Turning ideas into validated outcomes through execution and evidence.",
     category: "Connectivity",
-    status: "Current",
   },
 ];

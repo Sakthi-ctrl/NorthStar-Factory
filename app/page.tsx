@@ -129,13 +129,12 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
   };
 
   const displayName = tile.name || tile.id.replace(/-/g, " ");
-  const statusLabel = tile.status ? (tile.status === "Graduated" ? "GRADUATED" : "CURRENT PROJECT") : (tile.category || "PROJECT").toUpperCase();
 
   return (
     <div
       className="project-grid-card"
-      role="button"
-      tabIndex={0}
+      role={tile.websiteUrl ? "button" : undefined}
+      tabIndex={tile.websiteUrl ? 0 : undefined}
       aria-label={tile.ariaLabel}
       style={{
         display: "block",
@@ -194,7 +193,7 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
         }}
       />
 
-      {/* 2. Default Title (Shown over video when not hovered) */}
+      {/* 2. Default Title (Shown over image when not hovered) */}
       <div
         style={{
           position: "absolute",
@@ -224,7 +223,7 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
         </h3>
       </div>
 
-      {/* 3. Exact Google X Full-Black Hover Card Overlay */}
+      {/* 3. Full-Black Hover Card Overlay */}
       <div
         style={{
           position: "absolute",
@@ -271,29 +270,17 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
           </p>
         </div>
 
-        {/* Hover Content Bottom: Status Label (Left) & Visit Website Button / Arrow (Right) */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <span
+        {/* Hover Content Bottom: Only shown if websiteUrl exists */}
+        {tile.websiteUrl && (
+          <div
             style={{
-              fontSize: "13px",
-              fontWeight: 600,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "#ffffff",
-              fontFamily: "var(--font-family-text), 'Google Sans', sans-serif",
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "auto",
             }}
           >
-            {statusLabel}
-          </span>
-
-          {tile.websiteUrl ? (
             <a
               href={tile.websiteUrl}
               target="_blank"
@@ -306,9 +293,11 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
                 gap: "6px",
                 fontSize: "12px",
                 fontWeight: 600,
-                padding: "6px 14px",
+                padding: "8px 16px",
                 borderRadius: "100px",
                 textDecoration: "none",
+                color: "#000000",
+                backgroundColor: "#ffffff",
                 boxShadow: "0 2px 10px rgba(0,0,0,0.35)",
                 transition: "all 0.2s ease",
                 cursor: "pointer",
@@ -319,12 +308,8 @@ function ProjectGridCard({ tile }: { tile: ProjectTile }) {
                 <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-          ) : (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ color: "#ffffff" }}>
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
