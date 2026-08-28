@@ -90,7 +90,7 @@ export const PROJECT_TILES: ProjectTile[] = [
     dark: false,
     href: "/projects/foghorn",
     ariaLabel: "Go to AlignX project",
-    imageSrc: "/images/AlignX.jpg",
+    imageSrc: "/images/AlignX.png",
     desc: "AI-powered Business OS transforming how companies plan, operate, grow and scale.",
     smDesc: "AI-powered Business OS transforming how companies plan, operate, grow and scale.",
     category: "Clean Tech",
